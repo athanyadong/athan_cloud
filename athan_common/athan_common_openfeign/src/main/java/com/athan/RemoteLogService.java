@@ -19,7 +19,7 @@ import sun.security.util.SecurityConstants;
  * @author ruoyi
  */
 @Service
-@FeignClient(value = ServiceConstant.ATHAN_SHOP_ADMIN, path = "/login" ,fallbackFactory = RemoteLogFallbackFactory.class,contextId = "admin3")
+@FeignClient(value = ServiceConstant.ATHAN_SHOP_ADMIN, url = "localhost:10215/admin",path = "/login" ,fallbackFactory = RemoteLogFallbackFactory.class,contextId = "admin3")
 public interface RemoteLogService
 {
     /**

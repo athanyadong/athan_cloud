@@ -10,45 +10,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="status"        column="status"            />
 		<result property="ipaddr"        column="ipaddr"            />
 		<result property="msg"           column="msg"               />
-		<result property="accessTime"    column="access_time"       />
+
 	</resultMap>
 
 	<insert id="insertLogininfor" parameterType="LogInfo">
-		insert into sys_logininfor (user_name, status, ipaddr, msg, access_time)
-		values (#{userName}, #{status}, #{ipaddr}, #{msg}, sysdate())
+		insert into log_info (user_name, status, ipaddr, msg)
+		values (#{userName}, #{status}, #{ipaddr}, #{msg})
 	</insert>
 	
-	<select id="selectLogininforList" parameterType="LogInfo" resultMap="BaseResultMap">
-		select info_id, user_name, ipaddr, status, msg, access_time from sys_logininfor
-		<where>
-			<if test="ipaddr != null and ipaddr != ''">
-				AND ipaddr like concat('%', #{ipaddr}, '%')
-			</if>
-			<if test="status != null and status != ''">
-				AND status = #{status}
-			</if>
-			<if test="userName != null and userName != ''">
-				AND user_name like concat('%', #{userName}, '%')
-			</if>
-			<if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
-				and date_format(access_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
-			</if>
-			<if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
-				and date_format(access_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
-			</if>
-		</where>
-		order by info_id desc
-	</select>
+<!--	<select id="selectLogininforList" parameterType="LogInfo" resultMap="BaseResultMap">-->
+<!--		select info_id, user_name, ipaddr, status, msg from log_info-->
+<!--		<where>-->
+<!--			<if test="ipaddr != null and ipaddr != ''">-->
+<!--				AND ipaddr like concat('%', #{ipaddr}, '%')-->
+<!--			</if>-->
+<!--			<if test="status != null and status != ''">-->
+<!--				AND status = #{status}-->
+<!--			</if>-->
+<!--			<if test="userName != null and userName != ''">-->
+<!--				AND user_name like concat('%', #{userName}, '%')-->
+<!--			</if>-->
+<!--		-->
+<!--			<if test="params.endTime != null and params.endTime != ''">&lt;!&ndash; 结束时间检索 &ndash;&gt;-->
+<!--				and date_format(access_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')-->
+<!--			</if>-->
+<!--		</where>-->
+<!--		order by info_id desc-->
+<!--	</select>-->
 	
 	<delete id="deleteLogininforByIds" parameterType="Long">
- 		delete from sys_logininfor where info_id in
+ 		delete from log_info where info_id in
  		<foreach collection="array" item="infoId" open="(" separator="," close=")">
  			#{infoId}
         </foreach> 
  	</delete>
     
     <update id="cleanLogininfor">
-        truncate table sys_logininfor
+        truncate table log_info
     </update>
     
 </mapper> 
