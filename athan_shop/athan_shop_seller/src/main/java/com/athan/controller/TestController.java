@@ -1,6 +1,7 @@
 package com.athan.controller;
 
 import com.athan.service.tesService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RequestMapping("seller")
 @RestController
+@Slf4j
 public class TestController {
     @Autowired
     tesService tesService;
@@ -21,6 +23,9 @@ public class TestController {
         String feign = tesService.getFeign();
         String s = feign != null ? feign : "调用失败";
         return "xiaohan"+"远程调用的结果"+s;
+    }
+    public void test(){
+        log.info("韩某人来也");
     }
 
 }
