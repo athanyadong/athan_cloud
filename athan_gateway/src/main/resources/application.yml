@@ -1,0 +1,49 @@
+# Tomcat
+server:
+  port: 10215
+
+spring:
+  application:
+    name: athan-gateway
+  redis:
+    host: localhost
+    port: 6379
+    password:
+  cloud:
+    nacos:
+      discovery:
+        # ??????
+        server-addr: 127.0.0.1:8848
+      config:
+        # ??????
+        server-addr: 127.0.0.1:8848
+        # ??????
+    gateway:
+      discovery:
+        locator:
+          lowerCaseServiceId: true
+          enabled: false
+      routes:
+        - id: athan-shop-seller
+          uri: lb://athan-shop-seller
+          predicates:
+            - Path=/seller/**
+          filters:
+            - StripPrefix=1
+        - id: athan-shop-admin
+          uri: lb://athan-shop-admin
+          predicates:
+            - Path=/admin/**
+          filters:
+            - StripPrefix=1
+        - id: athan-mq
+          uri: lb://athan-mq
+          predicates:
+            - Path=/mq/**
+          filters:
+            - StripPrefix=1
+
+
+
+
+

@@ -1,0 +1,28 @@
+server:
+  port: 9008
+spring:
+  application:
+    name: athan-mq
+  rabbitmq:
+    addresses: localhost:5672
+    username: guest
+    password: guest
+    virtual-host: /
+    publisher-returns: true
+    connection-timeout: 15000
+    listener:
+      simple:
+        acknowledge-mode: manual
+      direct:
+        acknowledge-mode: manual
+        retry:
+          enabled: true
+          max-attempts: 5   #???? 5?
+    cache:
+      channel:
+        checkout-timeout: 5000  #????????
+        size: 100
+      connection:
+        size: 10
+    publisher-confirm-type: simple
+

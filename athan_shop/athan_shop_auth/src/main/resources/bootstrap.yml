@@ -1,0 +1,22 @@
+# Tomcat
+server: 
+  port: 9201
+
+# Spring
+spring: 
+  application:
+    # 应用名称
+    name: athan-auth
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 127.0.0.1:8848
+      config:
+        # 配置中心地址
+        server-addr: 127.0.0.1:8848
+
+  redis:
+    host: localhost
+    port: 6379
+    password:

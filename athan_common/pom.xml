@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.athan</groupId>
+        <artifactId>athan</artifactId>
+        <version>5.2.0</version>
+    </parent>
+
+
+    <description>公用模块</description>
+    <artifactId>athan_common</artifactId>
+
+    <modules>
+        <module>athan_common_rabbit</module>
+        <module>athan_common_redis</module>
+        <module>athan_common_model</module>
+        <module>athan_common_openfeign</module>
+    </modules>
+
+    <packaging>pom</packaging>
+
+
+</project>
