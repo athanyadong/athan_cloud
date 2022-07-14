@@ -1,8 +1,7 @@
 package com.athan.mapper;
 
 
-import com.athan.model.SysUser;
-
+import com.athan.user.model.SysUser;
 
 /**
  * 用户表 数据层
@@ -26,6 +25,9 @@ public interface SysUserMapper {
      * @return 用户对象信息
      */
     public SysUser selectUserById(Long userId);
+    //查看用户名称是否一致
+    public int checkUserNameUnique(String userName);
 
-
+    //添加用户信息
+    int insertUser(SysUser user);
 }

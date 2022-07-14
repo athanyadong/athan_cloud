@@ -1,7 +1,8 @@
 package com.athan.controller.login;
 
-import com.athan.model.LogInfo;
+
 import com.athan.service.LogInfoService;
+import com.athan.user.model.LogInfo;
 import com.athan.util.web.AjaxResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

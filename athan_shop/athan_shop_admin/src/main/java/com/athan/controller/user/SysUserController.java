@@ -1,8 +1,10 @@
 package com.athan.controller.user;
 
+
 import com.athan.doman.R;
 import com.athan.service.SysUserService;
 
+import com.athan.user.dto.LoginDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,8 +23,8 @@ public class SysUserController {
     private SysUserService sysUserService;
 
     @PostMapping("getUserInfo/{username}")
-    public R selectUserByUserName(@PathVariable("username") String username){
-        R r = sysUserService.selectUserByUserName(username);
-        return R.ok(r);
+    public R<LoginDTO> selectUserByUserName(@PathVariable("username") String username){
+        return   sysUserService.selectUserByUserName(username);
+
     }
 }

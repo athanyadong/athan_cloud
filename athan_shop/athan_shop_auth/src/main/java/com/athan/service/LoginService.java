@@ -7,10 +7,12 @@ import com.athan.RemoteLogService;
 import com.athan.SysUserService;
 import com.athan.constants.Constants;
 import com.athan.constants.UserConstants;
+
 import com.athan.doman.R;
-import com.athan.dto.LoginDTO;
-import com.athan.model.LogInfo;
-import com.athan.model.SysUser;
+import com.athan.user.dto.LoginDTO;
+import com.athan.user.model.LogInfo;
+import com.athan.user.model.SysUser;
+import com.athan.util.SecurityUtils;
 import com.athan.util.ServletUtils;
 import com.athan.util.ip.IpUtils;
 import com.athan.util.web.AjaxResult;
@@ -19,7 +21,6 @@ import com.athan.util.web.HttpStatus;
 
 import com.athan.util.web.StringUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.weaver.loadtime.Aj;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -64,7 +65,7 @@ public class LoginService {
             return AjaxResult.error(HttpStatus.ERROR, "用户名必须在指定范围内");
         }
         //获取用户信息
-        R userResult = sysUserService.selectUserByUserName(userName);
+        R<LoginDTO> userResult = sysUserService.selectUserByUserName(userName);
         if (userResult.getCode()== HttpStatus.ERROR) {
             return AjaxResult.error("发生错误信息");
         }
@@ -72,11 +73,32 @@ public class LoginService {
             recordLogininfor(userName, Constants.LOGIN_FAIL, "登录用户不存在");
             return AjaxResult.error("登录用户：" + userName + " 不存在");
         }
-        LoginDTO data = (LoginDTO) userResult.getData();
+        LoginDTO data =  userResult.getData();
         log.info("响应中获取到的信息为:{}", JSON.toJSONString(data));
-        SysUser user = ((LoginDTO) userResult.getData()).getSysUser();
+        SysUser user = (userResult.getData()).getSysUser();
+        //检验密码是否正确
+        if (!SecurityUtils.matchesPassword(passWord, user.getPassword()))
+        {
+            recordLogininfor(passWord, Constants.LOGIN_FAIL, "用户密码错误");
+            return AjaxResult.error("密码错误");
+        }
+        recordLogininfor(userName, Constants.LOGIN_SUCCESS, "登录成功");
+
         return AjaxResult.success(data);
     }
+
+    /**
+     * 进行注册
+     * @param userName
+     * @param passWord
+     * @return
+     */
+    public AjaxResult register(String userName, String passWord) {
+        //检查用户名是否存在，邮箱是否存在
+        return null;
+    }
+
+
 
     //记录登录信息的日志
     private void recordLogininfor(String userName, String status, String message) {

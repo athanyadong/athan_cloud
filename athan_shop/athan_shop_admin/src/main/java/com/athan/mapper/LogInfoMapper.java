@@ -1,6 +1,8 @@
 package com.athan.mapper;
 
-import com.athan.model.LogInfo;
+
+
+import com.athan.user.model.LogInfo;
 
 import java.util.List;
 
@@ -17,13 +19,6 @@ public interface LogInfoMapper {
      */
     public int insertLogininfor(LogInfo logininfor);
 
-    /**
-     * 查询系统登录日志集合
-     *
-     * @param logininfor 访问日志对象
-     * @return 登录记录集合
-     */
-    public List<LogInfo> selectLogininforList(LogInfo logininfor);
 
     /**
      * 批量删除系统登录日志

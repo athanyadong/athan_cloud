@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.athan.mapper.SysUserMapper">
 
-    <resultMap type="SysUser" id="SysUserResult">
+    <resultMap type="com.athan.user.model.SysUser" id="SysUserResult">
         <id     property="userId"       column="user_id"      />
         <result property="deptId"       column="dept_id"      />
         <result property="userName"     column="user_name"    />
@@ -111,6 +111,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from sys_user
 		where user_id = #{userId}
 	</select>
+    <select id="checkUserNameUnique" parameterType="String" resultType="int">
+        select count(1) from sys_user where user_name = #{userName} limit 1
+    </select>
 <!--	-->
 <!--	<select id="checkUserNameUnique" parameterType="String" resultType="int">-->
 <!--		select count(1) from sys_user where user_name = #{userName} limit 1-->
@@ -124,37 +127,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!--		select user_id, email from sys_user where email = #{email} limit 1-->
 <!--	</select>-->
 	
-<!--	<insert id="insertUser" parameterType="SysUser" useGeneratedKeys="true" keyProperty="userId">-->
-<!-- 		insert into sys_user(-->
-<!-- 			<if test="userId != null and userId != 0">user_id,</if>-->
-<!-- 			<if test="deptId != null and deptId != 0">dept_id,</if>-->
-<!-- 			<if test="userName != null and userName != ''">user_name,</if>-->
-<!-- 			<if test="nickName != null and nickName != ''">nick_name,</if>-->
-<!-- 			<if test="email != null and email != ''">email,</if>-->
-<!-- 			<if test="avatar != null and avatar != ''">avatar,</if>-->
-<!-- 			<if test="phonenumber != null and phonenumber != ''">phonenumber,</if>-->
-<!-- 			<if test="sex != null and sex != ''">sex,</if>-->
-<!-- 			<if test="password != null and password != ''">password,</if>-->
-<!-- 			<if test="status != null and status != ''">status,</if>-->
-<!-- 			<if test="createBy != null and createBy != ''">create_by,</if>-->
-<!-- 			<if test="remark != null and remark != ''">remark,</if>-->
-<!-- 			create_time-->
-<!-- 		)values(-->
-<!-- 			<if test="userId != null and userId != ''">#{userId},</if>-->
-<!-- 			<if test="deptId != null and deptId != ''">#{deptId},</if>-->
-<!-- 			<if test="userName != null and userName != ''">#{userName},</if>-->
-<!-- 			<if test="nickName != null and nickName != ''">#{nickName},</if>-->
-<!-- 			<if test="email != null and email != ''">#{email},</if>-->
-<!-- 			<if test="avatar != null and avatar != ''">#{avatar},</if>-->
-<!-- 			<if test="phonenumber != null and phonenumber != ''">#{phonenumber},</if>-->
-<!-- 			<if test="sex != null and sex != ''">#{sex},</if>-->
-<!-- 			<if test="password != null and password != ''">#{password},</if>-->
-<!-- 			<if test="status != null and status != ''">#{status},</if>-->
-<!-- 			<if test="createBy != null and createBy != ''">#{createBy},</if>-->
-<!-- 			<if test="remark != null and remark != ''">#{remark},</if>-->
-<!-- 			sysdate()-->
-<!-- 		)-->
-<!--	</insert>-->
+	<insert id="insertUser" parameterType="com.athan.user.model.SysUser" useGeneratedKeys="true" keyProperty="userId">
+ 		insert into sys_user(
+ 			<if test="userId != null and userId != 0">user_id,</if>
+ 			<if test="deptId != null and deptId != 0">dept_id,</if>
+ 			<if test="userName != null and userName != ''">user_name,</if>
+ 			<if test="nickName != null and nickName != ''">nick_name,</if>
+ 			<if test="email != null and email != ''">email,</if>
+ 			<if test="avatar != null and avatar != ''">avatar,</if>
+ 			<if test="phonenumber != null and phonenumber != ''">phonenumber,</if>
+ 			<if test="sex != null and sex != ''">sex,</if>
+ 			<if test="password != null and password != ''">password,</if>
+ 			<if test="status != null and status != ''">status,</if>
+ 			<if test="createBy != null and createBy != ''">create_by,</if>
+ 			<if test="remark != null and remark != ''">remark,</if>
+ 			create_time
+ 		)values(
+ 			<if test="userId != null and userId != ''">#{userId},</if>
+ 			<if test="deptId != null and deptId != ''">#{deptId},</if>
+ 			<if test="userName != null and userName != ''">#{userName},</if>
+ 			<if test="nickName != null and nickName != ''">#{nickName},</if>
+ 			<if test="email != null and email != ''">#{email},</if>
+ 			<if test="avatar != null and avatar != ''">#{avatar},</if>
+ 			<if test="phonenumber != null and phonenumber != ''">#{phonenumber},</if>
+ 			<if test="sex != null and sex != ''">#{sex},</if>
+ 			<if test="password != null and password != ''">#{password},</if>
+ 			<if test="status != null and status != ''">#{status},</if>
+ 			<if test="createBy != null and createBy != ''">#{createBy},</if>
+ 			<if test="remark != null and remark != ''">#{remark},</if>
+ 			sysdate()
+ 		)
+	</insert>
 <!--	-->
 <!--	<update id="updateUser" parameterType="SysUser">-->
 <!-- 		update sys_user-->

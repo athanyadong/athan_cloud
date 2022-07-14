@@ -1,14 +1,13 @@
 package com.athan.service.impl;
 
 import com.athan.mapper.LogInfoMapper;
-import com.athan.model.LogInfo;
+
 import com.athan.service.LogInfoService;
+import com.athan.user.model.LogInfo;
 import com.athan.util.web.AjaxResult;
-import org.aspectj.weaver.loadtime.Aj;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import javax.annotation.Resource;
 
@@ -23,7 +22,7 @@ public class LogInfoServiceImpl implements LogInfoService {
     @Resource
     private LogInfoMapper logInfoMapper;
 
-    //保存信息
+    //保存用户登录信息
     public AjaxResult saveLogininfor( LogInfo sysLogininfor){
         //  保存日志信息
         int i = logInfoMapper.insertLogininfor(sysLogininfor);
@@ -31,6 +30,7 @@ public class LogInfoServiceImpl implements LogInfoService {
             return AjaxResult.success("添加成功");
         }
         return AjaxResult.error("添加失败");
-
     }
+
+
 }

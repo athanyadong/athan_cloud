@@ -1,7 +1,8 @@
 package com.athan.fallback;
 
 import com.athan.RemoteLogService;
-import com.athan.model.LogInfo;
+
+import com.athan.user.model.LogInfo;
 import com.athan.util.web.AjaxResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

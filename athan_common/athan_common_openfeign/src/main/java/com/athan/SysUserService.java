@@ -1,8 +1,10 @@
 package com.athan;
 
+
 import com.athan.doman.R;
 import com.athan.fallback.SysUserServiceBack;
 import com.athan.model.rabbit.ServiceConstant;
+import com.athan.user.dto.LoginDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 
 import org.springframework.stereotype.Service;
@@ -14,5 +16,5 @@ public interface SysUserService {
 
 
     @PostMapping("/getUserInfo/{username}")
-    public R selectUserByUserName(@PathVariable("username") String username);
+    public R<LoginDTO> selectUserByUserName(@PathVariable("username") String username);
 }

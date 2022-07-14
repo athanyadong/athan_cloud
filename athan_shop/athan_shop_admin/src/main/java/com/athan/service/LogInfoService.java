@@ -1,6 +1,7 @@
 package com.athan.service;
 
-import com.athan.model.LogInfo;
+
+import com.athan.user.model.LogInfo;
 import com.athan.util.web.AjaxResult;
 
 /**
