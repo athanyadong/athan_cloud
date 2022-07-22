@@ -1,10 +1,12 @@
 # Tomcat
 server:
   port: 10215
-
 spring:
+
   application:
+
     name: athan-gateway
+
   redis:
     host: localhost
     port: 6379
@@ -49,7 +51,19 @@ spring:
           filters:
             - StripPrefix=1
 
+swagger:
+  enabled: true
 
+
+security:
+  ignore:
+     whites:r
+      - /*/v2/api-docs
+      - /swagger-ui/**
+      - /webjars/**
+      - /doc.html
+      - /swagger-resources/**
+      - /v3/**
 
 
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.athan.mapper.PmsCommentMapper">
+
+    <resultMap id="BaseResultMap" type="com.athan.model.PmsComment">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="productId" column="product_id" jdbcType="BIGINT"/>
+            <result property="memberNickName" column="member_nick_name" jdbcType="VARCHAR"/>
+            <result property="productName" column="product_name" jdbcType="VARCHAR"/>
+            <result property="star" column="star" jdbcType="INTEGER"/>
+            <result property="memberIp" column="member_ip" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="showStatus" column="show_status" jdbcType="INTEGER"/>
+            <result property="productAttribute" column="product_attribute" jdbcType="VARCHAR"/>
+            <result property="collectCouont" column="collect_couont" jdbcType="INTEGER"/>
+            <result property="readCount" column="read_count" jdbcType="INTEGER"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="pics" column="pics" jdbcType="VARCHAR"/>
+            <result property="memberIcon" column="member_icon" jdbcType="VARCHAR"/>
+            <result property="replayCount" column="replay_count" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,product_id,member_nick_name,
+        product_name,star,member_ip,
+        create_time,show_status,product_attribute,
+        collect_couont,read_count,content,
+        pics,member_icon,replay_count
+    </sql>
+</mapper>

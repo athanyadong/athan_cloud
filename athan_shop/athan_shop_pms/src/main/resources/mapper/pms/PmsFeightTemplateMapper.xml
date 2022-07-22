@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.athan.mapper.PmsFeightTemplateMapper">
+
+    <resultMap id="BaseResultMap" type="com.athan.model.PmsFeightTemplate">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="chargeType" column="charge_type" jdbcType="INTEGER"/>
+            <result property="firstWeight" column="first_weight" jdbcType="DECIMAL"/>
+            <result property="firstFee" column="first_fee" jdbcType="DECIMAL"/>
+            <result property="continueWeight" column="continue_weight" jdbcType="DECIMAL"/>
+            <result property="continmeFee" column="continme_fee" jdbcType="DECIMAL"/>
+            <result property="dest" column="dest" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,charge_type,
+        first_weight,first_fee,continue_weight,
+        continme_fee,dest
+    </sql>
+</mapper>

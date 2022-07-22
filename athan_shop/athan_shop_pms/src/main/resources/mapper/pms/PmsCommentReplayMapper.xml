@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.athan.mapper.PmsCommentReplayMapper">
+
+    <resultMap id="BaseResultMap" type="com.athan.model.PmsCommentReplay">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="commentId" column="comment_id" jdbcType="BIGINT"/>
+            <result property="memberNickName" column="member_nick_name" jdbcType="VARCHAR"/>
+            <result property="memberIcon" column="member_icon" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="type" column="type" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,comment_id,member_nick_name,
+        member_icon,content,create_time,
+        type
+    </sql>
+</mapper>

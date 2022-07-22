@@ -22,6 +22,8 @@
         <module>athan_shop_admin</module>
         <module>athan_shop_seller</module>
         <module>athan_shop_auth</module>
+        <module>athan_shop_oms</module>
+        <module>athan_shop_pms</module>
     </modules>
     <packaging>pom</packaging>
 

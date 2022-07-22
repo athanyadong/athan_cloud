@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.athan.mapper.PmsProductFullReductionMapper">
+
+    <resultMap id="BaseResultMap" type="com.athan.model.PmsProductFullReduction">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="productId" column="product_id" jdbcType="BIGINT"/>
+            <result property="fullPrice" column="full_price" jdbcType="DECIMAL"/>
+            <result property="reducePrice" column="reduce_price" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,product_id,full_price,
+        reduce_price
+    </sql>
+</mapper>
