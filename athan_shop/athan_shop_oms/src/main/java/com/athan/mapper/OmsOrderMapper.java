@@ -1,7 +1,10 @@
 package com.athan.mapper;
 
+import com.athan.dto.OmsOrderDTO;
 import com.athan.model.OmsOrder;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
 * @author Administrator
@@ -11,6 +14,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface OmsOrderMapper extends BaseMapper<OmsOrder> {
 
+
+    public List<OmsOrder> getOrderList(OmsOrderDTO dto);
 }
 
 

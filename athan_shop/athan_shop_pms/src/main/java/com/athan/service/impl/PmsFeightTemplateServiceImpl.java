@@ -15,6 +15,11 @@ import org.springframework.stereotype.Service;
 public class PmsFeightTemplateServiceImpl extends ServiceImpl<PmsFeightTemplateMapper, PmsFeightTemplate>
     implements PmsFeightTemplateService{
 
+    //查看运费模板
+
+
+
+
 }
 
 

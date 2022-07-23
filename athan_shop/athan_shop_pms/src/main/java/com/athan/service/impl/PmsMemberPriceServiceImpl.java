@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PmsMemberPriceServiceImpl extends ServiceImpl<PmsMemberPriceMapper, PmsMemberPrice>
     implements PmsMemberPriceService{
-
+    //查看
 }
 
 

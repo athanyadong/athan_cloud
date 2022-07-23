@@ -22,7 +22,7 @@ public class PmsFeightTemplate implements Serializable {
     private Long id;
 
     /**
-     * 
+     * 模板名称
      */
     private String name;
 

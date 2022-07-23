@@ -163,12 +163,12 @@ public class PmsProduct implements Serializable {
     private String serviceIds;
 
     /**
-     * 
+     * 关键字
      */
     private String keywords;
 
     /**
-     * 
+     * 商品记录
      */
     private String note;
 
@@ -178,12 +178,12 @@ public class PmsProduct implements Serializable {
     private String albumPics;
 
     /**
-     * 
+     * 商品标题
      */
     private String detailTitle;
 
     /**
-     * 
+     * 详细描述
      */
     private String detailDesc;
 
