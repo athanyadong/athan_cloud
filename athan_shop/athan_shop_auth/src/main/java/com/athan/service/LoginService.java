@@ -2,7 +2,6 @@ package com.athan.service;
 
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.nacos.shaded.com.google.protobuf.ServiceException;
 import com.athan.RemoteLogService;
 import com.athan.SysUserService;
 import com.athan.constants.Constants;
@@ -59,7 +58,6 @@ public class LoginService {
             return AjaxResult.error(HttpStatus.ERROR, "密码必须在指定范围内");
         }
         //用户名的指定范围
-
         if (userName.length() < UserConstants.USERNAME_MIN_LENGTH || userName.length() > UserConstants.USERNAME_MAX_LENGTH) {
             recordLogininfor(userName, "登录失败", "用户名不在指定范围");
             return AjaxResult.error(HttpStatus.ERROR, "用户名必须在指定范围内");

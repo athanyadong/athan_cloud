@@ -67,6 +67,17 @@
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.athan</groupId>
+            <artifactId>athan_common_model</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.athan</groupId>
+            <artifactId>athan_common_redis</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+
 
     </dependencies>
 

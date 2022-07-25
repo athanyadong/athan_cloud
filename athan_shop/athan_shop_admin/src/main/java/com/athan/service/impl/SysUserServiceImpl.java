@@ -66,6 +66,9 @@ public class SysUserServiceImpl implements SysUserService {
      */
 
     public boolean registerUser(SysUser user) {
+
+
+
         return userMapper.insertUser(user) > 0;
     }
 

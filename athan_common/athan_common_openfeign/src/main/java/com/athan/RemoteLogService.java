@@ -40,4 +40,7 @@ public interface RemoteLogService
      */
     @PostMapping("/logininfor")
     public AjaxResult saveLogininfor(@RequestBody LogInfo sysLogininfor);
+
+    @PostMapping("/getUserByName")
+    AjaxResult selectByUserName(String username);
 }

@@ -20,4 +20,10 @@ public class RemoteLogFallbackFactory implements RemoteLogService {
         log.info("获取用户信息服务调用失败");
         return null;
     }
+
+    @Override
+    public AjaxResult selectByUserName(String username) {
+        log.info("获取用户信息服务调用失败");
+        return null;
+    }
 }

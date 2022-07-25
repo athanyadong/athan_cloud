@@ -1,12 +1,20 @@
 package com.athan.util;
 
 import cn.hutool.core.convert.Convert;
+import com.alibaba.fastjson.JSON;
 import com.athan.model.constant.TokenConstants;
+import com.athan.user.model.SysUser;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import java.util.Base64;
+import java.util.Date;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * @aurhor yyh
@@ -34,7 +42,7 @@ public class JwtUtils {
     }
 
     /**
-     * 根据身份信息获取键值
+     * 解析
      *
      * @param claims 身份信息
      * @param key    键
